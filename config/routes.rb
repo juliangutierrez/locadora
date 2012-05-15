@@ -1,5 +1,8 @@
 Locadora::Application.routes.draw do
-  resources :generos
+  
+  resources :generos 
+  resources :filmes
+  
 
   get "home/index"
 
