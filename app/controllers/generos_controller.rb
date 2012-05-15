@@ -80,4 +80,8 @@ class GenerosController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def listar_filmes
+    @genero = Genero.find(params[:id])
+    @lista_filmes = @genero.filmes
+  end
 end
