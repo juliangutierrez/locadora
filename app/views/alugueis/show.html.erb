@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cliente:</b>
+  <%= @aluguel.cliente.nome %>
+</p>
+
+<p>
+  <b>Data do aluguel:</b>
+  <%= @aluguel.data_saida %>
+</p>
+
+<p>
+  <b>Data da entrega:</b>
+  <%= @aluguel.data_devolucao %>
+</p>
+
+<%= link_to 'Back', alugueis_path %>

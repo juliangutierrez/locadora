@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120515184727) do
+ActiveRecord::Schema.define(:version => 20120516134800) do
+
+  create_table "alugueis", :force => true do |t|
+    t.integer  "finalizado"
+    t.integer  "cliente_id"
+    t.datetime "data_saida"
+    t.datetime "data_devolucao"
+    t.float    "valor"
+    t.integer  "qtde_filmes"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "alugueis", ["cliente_id"], :name => "index_alugueis_on_cliente_id"
+
+  create_table "alugueis_filmes", :force => true do |t|
+    t.integer "aluguel_id"
+    t.integer "filme_id"
+  end
 
   create_table "clientes", :force => true do |t|
     t.string   "nome"

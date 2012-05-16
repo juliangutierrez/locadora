@@ -4,6 +4,7 @@
   <tr>
     <th>Nome</th>
     <th>Email</th>
+    <th>Aluguéis ativos</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,19 @@
   <tr>
     <td><%= cliente.nome %></td>
     <td><%= cliente.email %></td>
+    <td>
+      <% cliente.alugueis.active.each do |aluguel| %>
+        <ul>
+          <li> <%= aluguel.data_saida %>                     
+            <% aluguel.filmes.each do |filme| %>
+              <ul>
+                <li> <%= filme.nome %></li>
+              </ul>
+            <% end -%>   
+          </li>
+        </ul>
+      <% end -%>
+    </td>
     <td><%= link_to 'Show', cliente %></td>
     <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
     <td><%= link_to 'Destroy', cliente, confirm: 'Are you sure?', method: :delete %></td>

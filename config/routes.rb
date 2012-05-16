@@ -1,9 +1,11 @@
 Locadora::Application.routes.draw do
   
-  resources :clientes
+  resources :clientes 
+  resources :alugueis
+  
   resources :generos 
   resources :filmes
-  
+
   resources :generos do
     member do
      get 'listar_filmes'

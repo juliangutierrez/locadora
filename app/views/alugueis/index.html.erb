@@ -1,16 +1,8 @@
-<p id="notice"><%= notice %></p>
+<h1>Listing Alugueis</h1>
 
-<p>
-  <b>Nome:</b>
-  <%= @cliente.nome %>
-</p>
-<p>
-  <b>Email:</b>
-  <%= @cliente.email %>
-</p>
-<h1>Histórico de aluguéis</h1>
 <table>
-  <tr>    
+  <tr>
+    <th>Cliente</th>
     <th>Filmes</th>
     <th>Data de saída</th>
     <th>Data de entrega</th>
@@ -19,8 +11,9 @@
     <th></th>
   </tr>
 
-<% @cliente.alugueis.each do |aluguel| %>
-  <tr>    
+<% @alugueis.each do |aluguel| %>
+  <tr>
+    <td><%= aluguel.cliente.nome %></td>
     <td>
       <% aluguel.filmes.each do |filme| %>
         <ul>
@@ -37,6 +30,7 @@
 <% end %>
 </table>
 
+<br />
 
-<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
-<%= link_to 'Back', clientes_path %>
+<%= link_to 'New aluguel', new_aluguel_path %>
+<%= link_to 'Back', "/" %>
