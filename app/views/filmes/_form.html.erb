@@ -27,6 +27,10 @@
     <%= f.label :genero, 'Gênero' %><br />
     <%= f.select("genero_id", Genero.all.collect {|g| [ g.nome, g.id ] }, { :include_blank => true }) %>
   </div>
+  <div class="field">
+    <%= f.label :qtde, 'Quantidade:' %><br />
+    <%= f.text_field :qtde %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
