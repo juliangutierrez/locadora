@@ -6,6 +6,15 @@
 </p>
 
 <p>
+  <b>Filmes:</b>
+  <% @aluguel.filmes.each do |filme| %>
+  	<ul>
+     	<li> <%= filme.nome %></li>
+    </ul>
+  <% end -%>
+</p>
+
+<p>
   <b>Data do aluguel:</b>
   <%= @aluguel.data_saida %>
 </p>

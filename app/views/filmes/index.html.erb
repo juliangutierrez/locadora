@@ -6,6 +6,8 @@
     <th>Ano</th>
     <th>Diretor</th>
     <th>Gênero</th>
+    <th>Quantidade total</th>
+    <th>Quantidade disponível</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,6 +19,8 @@
     <td><%= filme.ano %></td>
     <td><%= filme.diretor %></td>
     <td><%= filme.genero.nome %></td>
+    <td><%= filme.qtde %></td>
+    <td><%= filme.qtde_disponivel %></td>
     <td><%= link_to 'Show', filme %></td>
     <td><%= link_to 'Edit', edit_filme_path(filme) %></td>
     <td><%= link_to 'Destroy', filme, confirm: 'Are you sure?', method: :delete %></td>

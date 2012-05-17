@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120516134800) do
+ActiveRecord::Schema.define(:version => 20120517135000) do
 
   create_table "alugueis", :force => true do |t|
     t.integer  "finalizado"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20120516134800) do
     t.integer  "genero_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "qtde"
   end
 
   add_index "filmes", ["genero_id"], :name => "index_filmes_on_genero_id"
