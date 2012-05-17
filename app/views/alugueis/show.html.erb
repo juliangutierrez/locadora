@@ -24,4 +24,7 @@
   <%= @aluguel.data_devolucao %>
 </p>
 
+<% if @aluguel.data_devolucao.nil? %>
+  <%= link_to 'Finalizar aluguel', finalizar_aluguel_aluguel_path(@aluguel) %>
+<% end %>
 <%= link_to 'Back', alugueis_path %>

@@ -20,7 +20,7 @@ class AlugueisController < ApplicationController
   
   def new
     @aluguel = Aluguel.new
-    @aluguel.data_saida = Time.new
+    #@aluguel.data_saida = Time.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,7 +34,7 @@ class AlugueisController < ApplicationController
   
   def create
     @aluguel = Aluguel.new({'filme_ids' => []}.merge(params[:aluguel]))
-    @aluguel.data_saida = Time.now
+    #@aluguel.data_saida = Time.now
     respond_to do |format|
       if @aluguel.save
         format.html { redirect_to @aluguel, notice: 'Aluguel was successfully created.' }
@@ -70,4 +70,16 @@ class AlugueisController < ApplicationController
     end
   end	
 
+  def finalizar_aluguel
+    @aluguel = Aluguel.find(params[:id])    
+    respond_to do |format|
+      if @aluguel.finalizar
+        format.html { redirect_to @aluguel, notice: 'Aluguel was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "show" }
+        format.json { render json: @aluguel.errors, status: :unprocessable_entity }
+      end
+    end   
+  end
 end

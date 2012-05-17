@@ -1,16 +1,22 @@
 Locadora::Application.routes.draw do
   
   resources :clientes 
+  
   resources :alugueis
+  resources :alugueis do
+    member do
+     get 'finalizar_aluguel'
+    end
+  end
   
   resources :generos 
-  resources :filmes
-
   resources :generos do
     member do
      get 'listar_filmes'
     end
   end
+
+  resources :filmes
 
   get "home/index"
 
