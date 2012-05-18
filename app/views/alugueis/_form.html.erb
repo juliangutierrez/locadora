@@ -1,4 +1,4 @@
-<%= form_for(@aluguel, :url => alugueis_path(@aluguel)) do |f| %>
+<%= form_for @aluguel do |f| %>
   <% if @aluguel.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@aluguel.errors.count, "error") %> prohibited this aluguel from being saved:</h2>
@@ -12,7 +12,7 @@
   <% end %>
   <div class="field">
     <%= f.label :cliente, 'Cliente:' %><br />
-    <%= f.select("cliente_id", Cliente.all.collect {|g| [ g.nome, g.id ] }, { :include_blank => true }) %>
+    <%= f.select("cliente_id", @clients.collect { |client| [ client.nome, client.id ] }, { :include_blank => true }) %>
   </div>
   <div class="field">
     <%= f.label :data_saida, 'Data de saída:' %><br />
@@ -20,11 +20,11 @@
   </div>
   
   <div class="field">
-    
-    <%Filme.all.each do |filme| -%>
+    <%= hidden_field_tag "aluguel[filme_ids][]", "" %>
+    <% @movies.each do |filme| -%>
     <div>
       <%= check_box_tag :filme_ids, filme.id, @aluguel.filmes.include?(filme), :name => 'aluguel[filme_ids][]' %>
-      <%= label_tag :filme_ids, filme.nome %><br />
+      <%= f.label :filme_ids, filme.nome %><br />
     </div>
   <% end -%>
     

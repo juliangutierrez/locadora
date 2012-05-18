@@ -7,15 +7,15 @@ class Aluguel < ActiveRecord::Base
   belongs_to :cliente
   has_and_belongs_to_many :filmes
   
-  after_initialize :do_this_after_initialize
+  after_initialize :set_rental_date
   
-  def do_this_after_initialize
+  def set_rental_date
   	if self.data_saida.nil?   
   		self.data_saida = Time.new
   	end
   end
 
-  def finalizar
+  def finalizar!
   	self.update_attributes(:data_devolucao => Time.new)
   end
 end

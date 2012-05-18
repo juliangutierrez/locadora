@@ -19,6 +19,8 @@ class AlugueisController < ApplicationController
   end
   
   def new
+    @movies = Filme.all
+    @clients = Cliente.all
     @aluguel = Aluguel.new
     #@aluguel.data_saida = Time.new
 
@@ -29,11 +31,13 @@ class AlugueisController < ApplicationController
   end
   
   def edit
+    @movies = Filme.all
+    @clients = Cliente.all
     @aluguel = Aluguel.find(params[:id])
   end
   
   def create
-    @aluguel = Aluguel.new({'filme_ids' => []}.merge(params[:aluguel]))
+    @aluguel = Aluguel.new(params[:aluguel])
     #@aluguel.data_saida = Time.now
     respond_to do |format|
       if @aluguel.save
@@ -47,6 +51,7 @@ class AlugueisController < ApplicationController
   end
 
   def update
+    xopowo
     @aluguel = Aluguel.find(params[:id])
 
     respond_to do |format|
@@ -73,7 +78,7 @@ class AlugueisController < ApplicationController
   def finalizar_aluguel
     @aluguel = Aluguel.find(params[:id])    
     respond_to do |format|
-      if @aluguel.finalizar
+      if @aluguel.finalizar!
         format.html { redirect_to @aluguel, notice: 'Aluguel was successfully updated.' }
         format.json { head :no_content }
       else
