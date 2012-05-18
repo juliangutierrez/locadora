@@ -3,34 +3,29 @@
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
-defaults: &defaults
-  adapter: postgresql
-  encoding: unicode
-  reconnect: true
-  min_messages: warning
-  pool: 15
-  timeout: 5000
-  host: localhost
-
 development:
-  <<: *defaults
+  adapter: postgresql
+  encoding: utf8
   database: locadora_development
-  username: solucao_social
-  password: solucao_social
+  pool: 5
+  username: postgres
+  password: postgres
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *defaults
+  adapter: postgresql
+  encoding: utf8
   database: locadora_development
-  username: solucao_social
-  password: solucao_social
+  pool: 5
+  username: postgres
+  password: postgres
 
 production:
   adapter: postgresql
   encoding: utf8
   database: locadora_development
   pool: 5
-  username: solucao_social
-  password: solucao_social
+  username: postgres
+  password: postgres
