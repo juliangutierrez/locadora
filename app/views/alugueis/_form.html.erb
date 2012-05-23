@@ -11,7 +11,7 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :cliente, 'Cliente:' %><br />
+    <%= f.label :cliente_id, 'Cliente:' %><br />
     <%= f.select("cliente_id", @clients.collect { |client| [ client.nome, client.id ] }, { :include_blank => true }) %>
   </div>
   <div class="field">

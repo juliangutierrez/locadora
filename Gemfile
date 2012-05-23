@@ -38,6 +38,7 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 group :development, :test do
   gem 'rspec-rails'
+  gem 'steak' 
 end
 group :test do
 	gem 'machinist', '>= 2.0.0.beta2'

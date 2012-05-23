@@ -17,7 +17,7 @@ class AlugueisController < ApplicationController
       format.json { render json: @aluguel }
     end
   end
-  
+
   def new
     @movies = Filme.all
     @clients = Cliente.all

@@ -9,6 +9,7 @@ require 'machinist/active_record'
 #   end
 Cliente.blueprint do
 	nome {"cliente1"}	
+	email {"josemateus@seila.com"}
 end
 
 Genero.blueprint do
